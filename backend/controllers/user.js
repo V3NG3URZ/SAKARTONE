@@ -38,8 +38,12 @@ exports.createUser = (req, res, next) => {
   bcrypt.hash(req.body.password, 10)
   .then(hash => {
   const user = new User({
-    email: req.body.email,
-    password: hash,
+    _id: req.body._id,
+    firstname: req.body.firstname,
+    name: req.body.name,
+    photo: req.body.photo,
+    phonenumber: req.body.phonenumber,
+    birthdate: req.body.birthdate,
   });
   user.save()
   .then(() => res.status(201).json({message: 'Nouvel utilisateur créé'})).
@@ -52,8 +56,8 @@ exports.createUser = (req, res, next) => {
   bcrypt.hash(req.body.password, 10)
   .then(hash => {
   const user = new User({
-    email: req.body.email,
-    password: hash,
+    _id: req.body._id,
+    name: req.body.name,
   });
   user.save()
   .then(() => res.status(201).json({message: 'Nouvel utilisateur créé'})).
@@ -63,27 +67,3 @@ exports.createUser = (req, res, next) => {
 };
 
 
-exports.login = (req, res, next) => {
-  User.findOne({ email: req.body.email })
-    .then(user => {
-      if (!user) {
-        return res.status(401).json({ error: 'Aucun utilisateur n\'est enregistré avec cet email' });
-      }
-      bcrypt.compare(req.body.password, user.password)
-        .then(valid => {
-          if (!valid) {
-            return res.status(401).json({ error: 'Le mot de passe saisi est incorrect' });
-          }
-          res.status(200).json({
-            userId: user._id,
-            token: jwt.sign(
-              { userId: user._id },
-              'RANDOM_TOKEN_SECRET',
-              { expiresIn: '24h' }
-            )
-          });
-        })
-        .catch(error => res.status(500).json({ error }));
-    })
-    .catch(error => res.status(500).json({ error }));
-};
