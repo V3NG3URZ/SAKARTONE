@@ -25,6 +25,8 @@ app.use((req, res, next) => {
 
 // Routes
 app.use('/api/users', userRoutes);
+
+app.use('/api/profiles', profilesRoutes);
 app.get('/', (req, res, next) => {
   res.statusCode=200;
   res.setHeader('Content-Type', 'text/plain');
