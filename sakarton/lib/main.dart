@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:sakarton/layout/salarie/show.dart';
+import 'package:sakarton/test.dart';
+
+import 'config/palette.dart';
+import 'layout/salarie/list.dart';
 
 void main() {
-  WidgetsFlutterBinding.ensureInitialized();
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatefulWidget {
@@ -13,10 +15,9 @@ class MyApp extends StatefulWidget {
   State<MyApp> createState() => _MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
-  // final UserProvider userProvider = UserProvider();
-  // final TripProvider tripProvider = TripProvider();
 
+
+class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     //dataProvider.fetchData();
@@ -25,25 +26,26 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        // ChangeNotifierProvider<UserProvider>(
-        //     create: (context) => UserProvider()),
-        // ChangeNotifierProvider<TripProvider>(
-        //     create: (context) => TripProvider()),
-      ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Forms',
-        home: ShowSalarie(),
-        // routes: {
-        //   '/': (context) => const (),
-        //   // AddUserView.routename: (_) => const AddUserView(),
-        // },
+    return  MaterialApp(
+        title: 'Smily',
         theme: ThemeData(
-          
-        ),
-      ),
+            textTheme: const TextTheme(
+              bodyText2: TextStyle(
+                fontFamily: "Roboto",
+                fontSize: 18,
+                color: Palette.sakartoneBlack,
+              ),
+              button: TextStyle(
+                fontFamily: "Roboto",
+                fontSize: 18,
+              ),
+            )),
+        debugShowCheckedModeBanner: false,
+        initialRoute: '/',
+        home: SacartoneList(),
+        // routes: {
+        //   '/': (context) => const ShowSalarie(),
+        // }
     );
   }
 }
