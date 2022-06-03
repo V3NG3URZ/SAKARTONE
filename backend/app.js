@@ -10,7 +10,7 @@ mongoose.connect('mongodb+srv://root:pass@sakartone2.72iupdj.mongodb.net/?retryW
 
 
 const userRoutes = require('./routes/user');
-const profilesRoutes = require('./routes/profiles');
+
 
 const app = express();
 
@@ -27,7 +27,6 @@ app.use((req, res, next) => {
 // Routes
 app.use('/api/users', userRoutes);
 
-app.use('/api/profiles', profilesRoutes);
 app.get('/', (req, res, next) => {
   res.statusCode=200;
   res.setHeader('Content-Type', 'text/plain');

@@ -35,10 +35,10 @@ class UserProvider with ChangeNotifier {
   }
 
   // Récupérer un seul user
-  void selectByEmail(email) async {
+  void selectById(id) async {
     try {
       http.Response response =
-          await http.get(Uri.parse('$host/api/users/' + email));
+          await http.get(Uri.parse('$host/api/users/' + id));
       if (response.statusCode == 200) {
         Map<String, dynamic> map = jsonDecode(response.body);
         User user = User.fromJson(map);
