@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Palette {
-  static const MaterialColor smilyPurple = MaterialColor(
+  static const MaterialColor sakartonePurple = MaterialColor(
     0xFFB393F3, // 0%  this will be color picked if no shade is selected when defining a Color property which doesn’t require a swatch
     <int, Color>{
       50: Color(0xFFfeb701), //10%
@@ -17,10 +17,10 @@ class Palette {
     },
   );
 
-  static const Color smilyOrange = Color(0xFFfeb701);
+  static const Color sakartoneOrange = Color(0xFFfeb701);
 
-  static const Color smilyWhite = Color(0xFFffffff);
+  static const Color sakartoneWhite = Color(0xFFffffff);
 
-  static const Color smilyBlack = Color(0xFF000000);
+  static const Color sakartoneBlack = Color(0xFF000000);
 
 }
