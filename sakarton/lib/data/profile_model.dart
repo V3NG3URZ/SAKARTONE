@@ -1,3 +1,5 @@
+import 'package:intl/intl.dart';
+
 class Profile {
   String firstname;
   String name;

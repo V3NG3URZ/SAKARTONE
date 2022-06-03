@@ -10,6 +10,7 @@ mongoose.connect('mongodb+srv://root:pass@sakartone2.72iupdj.mongodb.net/?retryW
 
 
 const userRoutes = require('./routes/user');
+const profilesRoutes = require('./routes/profiles');
 
 const app = express();
 
