@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 
 // A MODIFIER AVEC LES INFOS DE VOTRE CONNEXION 
-mongoose.connect('mongodb://localhost:27017/formapp',
+mongoose.connect('mongodb+srv://root:pass@sakartone2.72iupdj.mongodb.net/?retryWrites=true&w=majority',
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))
